@@ -6,7 +6,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { searchMovies } from '../api/MovieAPI';
 import { useMovie } from '../provider/MovieProvider';
 
-import MovieCard from '../components/MovieCard';
+import MovieCardView from '../components/MovieCardView';
 
 import { styles } from '../styles/styles';
 
@@ -103,7 +103,7 @@ export default function MovieListPage() {
                             setSelectedMovie(item)
                             navigation.navigate('Details');
                         }}>
-                        <MovieCard movie={item} />
+                        <MovieCardView movie={item} />
                     </TouchableOpacity>
                 )}
                 onEndReached={loadMorePage}

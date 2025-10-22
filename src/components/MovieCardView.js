@@ -3,11 +3,14 @@ import { View, Text, Image, TouchableOpacity } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Ionicons';
 
+import { useMovie } from '../provider/MovieProvider';
 import { styles } from '../styles/styles';
 
 
-export default function MovieCard({ movie }) {
-    const [isFavorite, setIsFavorite] = useState(false);
+export default function MovieCardView({ movie }) {
+
+    const { favorites, toggleFavorite } = useMovie();
+    const isFavorite = favorites.some((fav) => fav.imdbID === movie.imdbID);
 
     return (
         <View>
@@ -18,7 +21,7 @@ export default function MovieCard({ movie }) {
 
             <TouchableOpacity
                 style={styles.heartContainer}
-                onPress={() => setIsFavorite(!isFavorite)}
+                onPress={() => toggleFavorite(movie)}
             >
                 <Icon
                     name={isFavorite ? 'heart' : 'heart-outline'}

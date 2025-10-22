@@ -29,7 +29,8 @@ export const getMovieDetails = async (movieId) => {
     try {
         const detailResponse = await omdbApi.get('/', {
             params: {
-                i: movieId
+                i: movieId,
+                plot: 'full'
             }
         });
         return detailResponse.data;

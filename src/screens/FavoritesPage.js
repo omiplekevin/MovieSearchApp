@@ -10,6 +10,7 @@ import { styles } from '../styles/styles';
 
 export default function FavoritesPage() {
     const { favorites, setSelectedMovie } = useMovie();
+
     const navigation = useNavigation();
 
     if (favorites.length === 0) {
@@ -22,6 +23,8 @@ export default function FavoritesPage() {
 
     return (
         <SafeAreaView style={styles.container}>
+            <Text style={styles.pageHeader}>Favorites</Text>
+
             <FlatList
                 data={favorites}
                 numColumns={2}
@@ -33,7 +36,9 @@ export default function FavoritesPage() {
                         style={styles.gridItem}
                         onPress={() => {
                             setSelectedMovie(item);
-                            navigation.navigate('Details');
+                            navigation.navigate('Movies', {
+                                screen: 'Details'
+                            });
                         }}
                     >
                         <MovieCard movie={item} />

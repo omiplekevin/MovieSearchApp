@@ -84,6 +84,7 @@ export default function MovieListPage() {
 
     return (
         <SafeAreaView style={styles.container}>
+            <Text style={styles.pageHeader}>Movies</Text>
             <TextInput
                 style={styles.input}
                 placeholder="Search OMDb..."

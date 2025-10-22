@@ -13,7 +13,10 @@ const Stack = createNativeStackNavigator();
 // Stack for Movies (so it can navigate to Details)
 function MovieStack() {
     return (
-        <Stack.Navigator>
+        <Stack.Navigator
+        screenOptions={{
+            headerShown: false,
+        }}>
             <Stack.Screen
                 name="MoviesHome"
                 component={MovieListPage}

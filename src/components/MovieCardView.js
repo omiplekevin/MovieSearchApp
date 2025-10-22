@@ -30,7 +30,6 @@ export default function MovieCardView({ movie }) {
                 />
             </TouchableOpacity>
 
-
             <LinearGradient
                 colors={['rgba(0,0,0,1)', 'transparent']}
                 start={{ x: 0.5, y: 0.8 }}
@@ -41,7 +40,7 @@ export default function MovieCardView({ movie }) {
                 <Text
                     numberOfLines={1}
                     ellipsizeMode='tail'
-                    style={styles.card_title}>{movie.Title}</Text>
+                    style={styles.cardTitle}>{movie.Title}</Text>
             </LinearGradient>
         </View>
     );

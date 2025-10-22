@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
+import FastImage from 'react-native-fast-image';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -14,10 +15,14 @@ export default function MovieCardView({ movie }) {
 
     return (
         <View>
-            <Image
-                source={{ uri: movie.Poster }}
+            <FastImage
+                source={{
+                    uri: movie.Poster,
+                    priority: FastImage.priority.normal,
+                    cache: FastImage.cacheControl.immutable
+                }}
                 style={styles.poster}
-                resizeMode="cover" />
+                resizeMode={FastImage.resizeMode.cover} />
 
             <TouchableOpacity
                 style={styles.heartContainer}

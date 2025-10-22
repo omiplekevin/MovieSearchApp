@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Text, TextInput, FlatList, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { Text, TextInput, FlatList, TouchableOpacity, ActivityIndicator, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -15,7 +15,7 @@ export default function MovieListPage() {
     const { movies, setMovies, setSelectedMovie } = useMovie();
 
     //LOCAL STATE
-    const [searchQuery, setSearchQuery] = useState('Iron Man');
+    const [searchQuery, setSearchQuery] = useState('');
     const [debouncedQuery, setDebouncedQuery] = useState(searchQuery);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -91,30 +91,36 @@ export default function MovieListPage() {
                 value={searchQuery}
                 onChangeText={setSearchQuery}
             />
-            <FlatList
-                data={movies}
-                keyExtractor={(item) => item.imdbID}
-                numColumns={2}
-                columnWrapperStyle={styles.row}
-                contentContainerStyle={styles.gridContainer}
-                renderItem={({ item }) => (
-                    <TouchableOpacity
-                        style={styles.gridItem}
-                        onPress={() => {
-                            setSelectedMovie(item)
-                            navigation.navigate('Details');
-                        }}>
-                        <MovieCardView movie={item} />
-                    </TouchableOpacity>
-                )}
-                onEndReached={loadMorePage}
-                onEndReachedThreshold={0.6} // trigger when 20% close to bottom
-                ListFooterComponent={
-                    loading ? (
-                        <ActivityIndicator size="large" color="#000" style={{ margin: 16 }} />
-                    ) : null
-                }
-            />
+            {!searchQuery ? (
+                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                    <Text>What interests you now?</Text>
+                </View>
+            ) : (
+                <FlatList
+                    data={movies}
+                    keyExtractor={(item) => item.imdbID}
+                    numColumns={2}
+                    columnWrapperStyle={styles.row}
+                    contentContainerStyle={styles.gridContainer}
+                    renderItem={({ item }) => (
+                        <TouchableOpacity
+                            style={styles.gridItem}
+                            onPress={() => {
+                                setSelectedMovie(item)
+                                navigation.navigate('Details');
+                            }}>
+                            <MovieCardView movie={item} />
+                        </TouchableOpacity>
+                    )}
+                    onEndReached={loadMorePage}
+                    onEndReachedThreshold={0.6} // trigger when 20% close to bottom
+                    ListFooterComponent={
+                        loading ? (
+                            <ActivityIndicator size="large" color="#000" style={{ margin: 16 }} />
+                        ) : null
+                    }
+                />
+            )}
         </SafeAreaView>
     );
 }

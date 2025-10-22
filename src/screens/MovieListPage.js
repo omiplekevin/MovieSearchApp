@@ -10,6 +10,12 @@ import MovieCardView from '../components/MovieCardView';
 
 import { styles } from '../styles/styles';
 
+/**
+ * This page is show to the user upon app load. 
+ * This screen lets the user search for movies and interact with the results.
+ * This page queries for the movie details via OMDb API
+ * @returns 
+*/
 export default function MovieListPage() {
     //GLOBAL STATE
     const { movies, setMovies, setSelectedMovie } = useMovie();

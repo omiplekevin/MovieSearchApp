@@ -9,6 +9,11 @@ import { useMovie } from '../provider/MovieProvider';
 
 import { styles } from '../styles/styles';
 
+/**
+ * Displays the details of a movie selected by the user.
+ * This page queries for the movie details via OMDb API.
+ * @returns 
+ */
 export default function MovieDetailsPage() {
 
     const navigation = useNavigation();

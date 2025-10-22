@@ -7,7 +7,12 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { useMovie } from '../provider/MovieProvider';
 import { styles } from '../styles/styles';
 
-
+/**
+ * This is a view component that is used for display a movie card.
+ * Movie card has the poster and the movie's title.
+ * @param {*} movie Movie item selected by the user
+ * @returns 
+ */
 export default function MovieCardView({ movie }) {
 
     const { favorites, toggleFavorite } = useMovie();

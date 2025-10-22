@@ -10,7 +10,6 @@ import MovieDetailsPage from '../screens/MovieDetailsPage';
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
-// Stack for Movies (so it can navigate to Details)
 function MovieStack() {
     return (
         <Stack.Navigator

@@ -31,12 +31,12 @@ If everything is set up correctly, you should see your new app running in the An
 This is one way to run your app — you can also build it directly from Android Studio.
 
 ## Dependencies used:
-- async-storage: Data persistence
-- bottom-tabs: Bottom navigation
-- native-stack: Navigation Stack
-- axios: HTTP Client library
-- dotenv: environment variable management
-- fast-image: Image loading with caching
-- linear-gradient: UI component for creating linear view
-- safe-area-context: Safe area for handling modern device designs
-- vector-icons: Icons using Ionicons
+- `async-storage`: Data persistence
+- `bottom-tabs`: Bottom navigation
+- `native-`stack`: Navigation Stack
+- `axios`: HTTP Client library
+- `dotenv`: environment variable management
+- `fast-image`: Image loading with caching
+- `linear-gradient`: UI component for creating linear view
+- `safe-area-context`: Safe area for handling modern device designs
+- `vector-icons`: Icons using Ionicons

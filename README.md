@@ -33,7 +33,7 @@ This is one way to run your app — you can also build it directly from Android 
 ## Dependencies used:
 - `async-storage`: Data persistence
 - `bottom-tabs`: Bottom navigation
-- `native-`stack`: Navigation Stack
+- `native-stack`: Navigation Stack
 - `axios`: HTTP Client library
 - `dotenv`: environment variable management
 - `fast-image`: Image loading with caching

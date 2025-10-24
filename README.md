@@ -4,6 +4,17 @@ Movie Search App, a [**React Native**](https://reactnative.dev) project, bootstr
 
 > **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
 
+## Step 0: Setup project
+
+After cloning the project source code, modules will not be available. Install the node modules
+
+```sh
+# Node Module install
+npm install --legacy-peer-deps
+```
+
+> Why with `--legacy-peer-deps`? FastImage has it's legacy dependencies that conflicts with the latest RN version
+
 ## Step 1: Start Metro
 
 First, you will need to run **Metro**, the JavaScript build tool for React Native.
